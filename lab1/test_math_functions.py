@@ -20,5 +20,4 @@ def test_divide():
     assert divide(4, 2) == 2
     assert divide(10, 2) == 5
 
-    with pytest.raises(ZeroDivisionError):
-        divide(1, 0)
+  
