@@ -2,6 +2,11 @@ from fastapi import FastAPI, HTTPException
 from math_functions import add, subtract, multiply, divide
 from pydantic import BaseModel
 import random
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
@@ -13,6 +18,7 @@ class Operation(BaseModel):
 async def root():
     return {"message": "Hello World", "value": str(add(random.randint(0, 10), random.randint(11, 30)))}
     except Exception as e:
+        logger.error(f"Error in root endpoint: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/health")
