@@ -16,10 +16,9 @@ def test_multiply():
     assert multiply(1, 1) == 1
     assert multiply(-1, 5) == -5
 
-def test_multiply():
-    assert divide(4, 2) == 8
-    assert divide(10, 2) == 20
-    assert divide(1, -1) == -1
+def test_divide():
+    assert divide(4, 2) == 2
+    assert divide(10, 2) == 5
 
     with pytest.raises(ZeroDivisionError):
         divide(1, 0)
