@@ -1,3 +1,4 @@
+import pytest
 from math_functions import add, subtract, multiply, divide
 
 def test_add():
@@ -19,3 +20,6 @@ def test_multiply():
     assert divide(4, 2) == 2
     assert divide(10, 2) == 5
     assert divide(1, -1) == -1
+
+    with pytest.raises(ZeroDivisionError):
+        divide(1, 0)
