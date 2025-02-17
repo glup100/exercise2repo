@@ -16,7 +16,8 @@ class Operation(BaseModel):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World", "value": str(add(random.randint(0, 10), random.randint(11, 30)))}
+    try:
+        return {"message": "Hello World", "value": str(add(random.randint(0, 10), random.randint(11, 30)))}
     except Exception as e:
         logger.error(f"Error in root endpoint: {e}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -25,7 +26,7 @@ async def root():
 async def health_check():
     return {"status": "healthy"}
 
-    @app.post("/add")
+@app.post("/add")
 async def add_numbers(operation: Operation):
     try:
         result = add(operation.x, operation.y)
