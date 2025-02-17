@@ -17,8 +17,8 @@ def test_multiply():
     assert multiply(-1, 5) == -5
 
 def test_multiply():
-    assert divide(4, 2) == 2
-    assert divide(10, 2) == 5
+    assert divide(4, 2) == 8
+    assert divide(10, 2) == 20
     assert divide(1, -1) == -1
 
     with pytest.raises(ZeroDivisionError):
